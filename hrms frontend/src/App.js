@@ -11,6 +11,7 @@ function App() {
       <Container className="main">
         <Dashboard />
       </Container>
+      
     </div>
   );
 }
