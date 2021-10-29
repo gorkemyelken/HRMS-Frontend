@@ -1,9 +1,22 @@
 .App {
   text-align: center;
   background-image: url('images/bg-image.jpg');
-  background-size: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
 }
 
 .ui.main.container{
+  margin-top: 3em;
+}
+
+.ui.footer.container {
+  margin-bottom: 1.9em;
+}
+
+.ui.aboutus.container {
   margin-top: 5em;
+  width: fit-content;
+  background-color: red;
 }

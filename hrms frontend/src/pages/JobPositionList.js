@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Icon, Table, Divider, Header } from 'semantic-ui-react'
 import JobPositionService from "../services/jobPositionService";
-import { Link } from "react-router-dom"
+
 
 export default function JobPositionList() {
 
@@ -20,11 +20,11 @@ export default function JobPositionList() {
                     Job Positions
                 </Header>
             </Divider>
-            <Table celled >
+            <Table>
                 <Table.Body>
                     {jobPositions.map((jobPosition) => (
                         <Table.Row key={jobPosition.id}>
-                            <Table.Cell textAlign="center"><Link to={`/jobpositions/${jobPosition.position}`}>{jobPosition.position}</Link></Table.Cell>
+                            <Table.Cell textAlign="center">{jobPosition.position}</Table.Cell>
                         </Table.Row>
                     ))
                     }

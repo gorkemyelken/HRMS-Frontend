@@ -1,42 +1,62 @@
-import React from 'react'
-import CandidateService from '../services/candidateService'
-import { Image, Divider, Icon, Header, Card, CardHeader } from 'semantic-ui-react'
-import { useState, useEffect } from "react";
-import person from '../images/person.jpg';
+import React, { useState, useEffect } from "react";
+import CvService from "../services/cvService";
+import { Card, Grid, Image, Divider, Icon, Header, List } from "semantic-ui-react";
 
 export default function CandidateList() {
-    const [candidates, setCandidates] = useState([])
+    const [cvs, setcvs] = useState([]);
+
+
 
     useEffect(() => {
-        let candidateService = new CandidateService()
-        candidateService.getCandidates().then(result => setCandidates(result.data.data))
-    })
+        let cvService = new CvService();
+        cvService.getCvs().then((result) => setcvs(result.data.data));
+    }, []);
 
     return (
         <div>
+            <br />
+
             <Divider horizontal fitted>
                 <Header as='h4'>
                     <Icon name='user' />
                     Candidates
                 </Header>
             </Divider>
-            {candidates.map((candidate) => (
-                <Card key={candidate.id}>
-                    <Image src={person} wrapped ui={false} />
-                    <CardHeader>{candidate.firstName} {candidate.lastName}</CardHeader>
-                    <Card.Meta>
-                        <span className='date'>Joined in 2015</span>
-                    </Card.Meta>
-                    <Card.Description>
-                        Open to work.
-                    </Card.Description>
+            <br />
+            <br />
+            <Grid columns={4} divided="vertically">
+                <Grid.Row>
+                    {cvs.map((cv) => (
+                        <Grid.Column>
 
+                            <Card>
 
+                                <Image src={cv.imageUrl} />
 
+                                <Card.Content>
+                                    <Card.Header>{cv.candidate.firstName}</Card.Header>
+                                    <Card.Header>{cv.candidate.lastName}</Card.Header>
+                                    <Card.Description>
+                                        {cv.coverLetter}
+                                    </Card.Description>
+                                    <br/>
+                                    <List link horizontal>
+                                        <List.Item href={cv.githubAddress} target="blank">
+                                            <Icon name="github" size="large" />
+                                        </List.Item>
+                                        <List.Item href={cv.linkedinAddress} target="blank">
+                                            <Icon name="linkedin" size="large" />
+                                        </List.Item>
+                                    </List>
 
-                </Card>
-            ))}
+                                    
+                                </Card.Content>
+                            </Card>
 
+                        </Grid.Column>
+                    ))}
+                </Grid.Row>
+            </Grid>
         </div>
-    )
+    );
 }

@@ -1,5 +1,6 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import { Container, Menu, Dropdown, Image } from 'semantic-ui-react'
+import { NavLink } from "react-router-dom";
 import logo from '../images/logo-image.jpg';
 import SignedOut from './SignedOut'
 import SignedIn from './SignedIn'
@@ -34,8 +35,11 @@ export default function Navi() {
                     <Image href='/' src={logo} size="tiny" />
 
                     <Menu.Item href='/' name="Home" />
-
-                    <Menu.Item position="left">
+                    <Menu.Item as={NavLink} to="/companies" content="Companies" />
+                    <Menu.Item as={NavLink} to="/candidates" content="Candidates" />
+                    <Menu.Item as={NavLink} to="/jobadvertisements" content="Job Postings" />
+                    <Menu.Item position="right" as={NavLink} to="/aboutus" content="About Us" />
+                    <Menu.Item>
                         <Dropdown
                             button
                             className='icon'
@@ -47,20 +51,14 @@ export default function Navi() {
                             text='Select Language'
                         />
                     </Menu.Item>
-
-
-                    <Menu.Item position="right">
-                        <Dropdown item text='Employer'>
-                            <Dropdown.Menu>
-                                <Dropdown.Item>Log In</Dropdown.Item>
-                                <Dropdown.Item>Let's call you!</Dropdown.Item>
-                            </Dropdown.Menu>
-                        </Dropdown>
-                        {isAuthenticated?<SignedIn signOut={handleSignOut} bisey="1"/>:<SignedOut signIn={handleSignIn}/>}
-
-
-                    </Menu.Item>
-
+                    <Menu.Menu position="right">
+                        <Menu.Item position="right">
+                            <SignedIn />
+                        </Menu.Item>
+                        <Menu.Item position="right">
+                            <SignedOut />
+                        </Menu.Item>
+                    </Menu.Menu>
                 </Container>
             </Menu>
 
