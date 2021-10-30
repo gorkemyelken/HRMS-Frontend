@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router';
 import EmployerService from '../services/employerService';
-import { Image, Icon, Header, Grid, Divider} from "semantic-ui-react";
+import { Image, Icon, Header, Grid, Divider, Button} from "semantic-ui-react";
 import JobAdvertisementList from './JobAdvertisementList';
+import { Link } from 'react-router-dom';
 
 export default function EmployerDetail() {
     let{id} = useParams();
@@ -31,9 +32,8 @@ export default function EmployerDetail() {
               <br />
               <Image src={employer.imageUrl} centered size="medium" circular />
               <br />
-              <Header as='h3'>
-                {employer.webAddress}
-              </Header>
+              <Icon name="linkify" />
+              {employer.webAddress}
               <br />
               <br />
               <Icon name="mail" />
@@ -43,6 +43,10 @@ export default function EmployerDetail() {
               <Icon name="phone" />
               {employer.phoneNumber}
               <br />
+              <br/>
+              <Button circular color="orange"><Link to={`/jobadvertisementadd`}>
+                                        Post A Job
+                                    </Link></Button>
             </Grid.Row>
           </Grid.Column>
           <Grid.Column width="3" />

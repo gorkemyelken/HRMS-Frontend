@@ -6,7 +6,7 @@ export default class JobAdvertisementService {
     }
 
     findById(id){
-        return axios.get("http://localhost:8080/api/jobadvertisements/findbyid?id=" + id)
+        return axios.get("http://localhost:8080/api/jobadvertisements/findbyid?id="+id)
     }
 
     getByEmployer(companyName){

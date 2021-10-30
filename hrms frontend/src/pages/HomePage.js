@@ -12,10 +12,10 @@ export default function HomePage() {
                         <Form>
                             <Grid columns={2}>
                                 <Grid.Column>
-                                    <Button color="green"><Icon name='user' />Candidate</Button>
+                                    <Button circular color="green"><Icon name='user' />Candidate</Button>
                                 </Grid.Column>
                                 <Grid.Column>
-                                    <Button color="facebook"><Icon name='building' />Company</Button>
+                                    <Button circular color="facebook"><Icon name='building' />Company</Button>
                                 </Grid.Column>
                             </Grid>
                             <Form.Input
@@ -32,16 +32,16 @@ export default function HomePage() {
                                 placeholder='Password'
                             />
 
-                            <Button content='Login' color="green" />
+                            <Button circular content='Login' color="green" />
                         </Form>
                     </Grid.Column>
 
                     <Grid.Column verticalAlign='middle'>
-                        <Button as={NavLink} to="/individualsignup" content='Sign up' icon='signup' size='big' color="teal" ></Button>
+                        <Button circular as={NavLink} to="/individualsignup" content='Sign up' icon='signup' size='big' color="teal" ></Button>
                         <br />
                         <br />
                         <br />
-                        <Button as={NavLink} to="/letscallyou" content="Let's Call You!" icon='phone volume' size='big' color="orange" ></Button>
+                        <Button circular as={NavLink} to="/letscallyou" content="Let's Call You!" icon='phone volume' size='big' color="orange" ></Button>
                     </Grid.Column>
 
                 </Grid>

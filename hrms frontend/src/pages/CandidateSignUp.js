@@ -45,7 +45,7 @@ export default function CandidateSignUp() {
                     <Form.Input fluid label='Confirm Password' />
                 </Form.Group>
                 <Form.Checkbox label='I agree to the Terms and Conditions' />
-                <Form.Button>Submit</Form.Button>
+                <Form.Button circular>Submit</Form.Button>
             </Form>
         </div>
     )

@@ -1,19 +1,10 @@
-import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router';
-import CandidateService from '../services/candidateService';
-import { Image, Grid, List, Icon, Header, Divider } from "semantic-ui-react";
+import React from 'react'
+import { Divider, Icon, Header, Grid, Image, List} from "semantic-ui-react";
 
-export default function CandidateDetail() {
-  let { id } = useParams();
-  const [cv, setCv] = useState({})
-
-  useEffect(() => {
-    let candidateService = new CandidateService()
-    candidateService.findById(id).then(result => setCv(result.data.data))
-  }, [])
-  return (
-    <div>
-      <Grid>
+export default function AboutUsPage() {
+    return (
+        <div>
+            <Grid>
         <Grid.Row>
         <Grid.Column width="3" />
           <Grid.Column width="10">
@@ -22,28 +13,27 @@ export default function CandidateDetail() {
               <br />
               <Divider horizontal fitted>
                 <Header as='h4'>
-                  <Icon name='user' />
-                  {cv.candidate?.firstName}&nbsp;{cv.candidate?.lastName}
+                  Görkem Yelken
                 </Header>
               </Divider>
               <br />
               <br />
-              <Image src={cv.imageUrl} centered size="medium" circular />
+              <Image src="https://media-exp1.licdn.com/dms/image/C4E03AQGqqmpqVZLpGA/profile-displayphoto-shrink_400_400/0/1598041821284?e=1640822400&v=beta&t=pon8Kfee1YC7V_-zn1cdMzdUIZ0A5Grs3LUTI1w92UI" centered size="medium" circular />
               <br />
               <Header as='h3'>
-                {cv.coverLetter}
+                Full Stack Developer
               </Header>
               <br />
               <br />
               <Icon name="mail" />
-              {cv.candidate?.email}
+              gorkemyelken@gmail.com
               <br />
               <br />
               <List link horizontal>
-                <List.Item href={cv.githubAddress} target="blank">
+                <List.Item href="https://www.github.com/grkmylkn" target="blank">
                   <Icon name="github" size="large" />
                 </List.Item>
-                <List.Item href={cv.linkedinAddress} target="blank">
+                <List.Item href="https://www.linkedin.com/in/gorkemyelken/" target="blank">
                   <Icon name="linkedin" size="large" />
                 </List.Item>
               </List>
@@ -121,5 +111,5 @@ export default function CandidateDetail() {
       </Grid>
 
     </div >
-  )
+    )
 }
