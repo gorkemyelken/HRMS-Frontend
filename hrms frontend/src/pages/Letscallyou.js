@@ -5,7 +5,7 @@ export default function letscallyou() {
     return (
         <div>
             <br />
-            <br />
+            <br/>
             <Divider horizontal fitted>
                 <Header as='h4'>
                     <Icon name='phone volume' />

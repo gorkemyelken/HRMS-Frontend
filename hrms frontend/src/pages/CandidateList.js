@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import CvService from "../services/cvService";
 import { Card, Grid, Image, Divider, Icon, Header, List } from "semantic-ui-react";
+import { Link } from "react-router-dom";
 
 export default function CandidateList() {
     const [cvs, setcvs] = useState([]);
@@ -15,7 +16,6 @@ export default function CandidateList() {
     return (
         <div>
             <br />
-
             <Divider horizontal fitted>
                 <Header as='h4'>
                     <Icon name='user' />
@@ -31,25 +31,27 @@ export default function CandidateList() {
 
                             <Card>
 
-                                <Image src={cv.imageUrl} />
+                                <Image src={cv.imageUrl} circular />
 
                                 <Card.Content>
-                                    <Card.Header>{cv.candidate.firstName}</Card.Header>
-                                    <Card.Header>{cv.candidate.lastName}</Card.Header>
+                                    <Card.Header><Link to={`/candidates/${cv.id}`}>
+                                        {cv.candidate.firstName}
+                                    </Link>&nbsp;<Link to={`/candidates/${cv.id}`}>{cv.candidate.lastName}</Link></Card.Header>
                                     <Card.Description>
-                                        {cv.coverLetter}
+                                    {cv.coverLetter}
                                     </Card.Description>
-                                    <br/>
-                                    <List link horizontal>
-                                        <List.Item href={cv.githubAddress} target="blank">
-                                            <Icon name="github" size="large" />
-                                        </List.Item>
-                                        <List.Item href={cv.linkedinAddress} target="blank">
-                                            <Icon name="linkedin" size="large" />
-                                        </List.Item>
-                                    </List>
+                                    <br />
+                                    <Card.Content extra>
+                                        <List link horizontal>
+                                            <List.Item href={cv.githubAddress} target="blank">
+                                                <Icon name="github" size="large" />
+                                            </List.Item>
+                                            <List.Item href={cv.linkedinAddress} target="blank">
+                                                <Icon name="linkedin" size="large" />
+                                            </List.Item>
+                                        </List>
+                                    </Card.Content>
 
-                                    
                                 </Card.Content>
                             </Card>
 

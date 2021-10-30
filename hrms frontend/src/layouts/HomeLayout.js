@@ -1,15 +1,15 @@
 import React from "react";
-import { Divider, Grid, Header, Search } from "semantic-ui-react";
+import { Grid, Header, Search } from "semantic-ui-react";
 import JobPositionList from "../pages/JobPositionList";
 import HomePage from "../pages/HomePage";
 import { Route } from "react-router";
-import SignUp from "./SignUp";
 
 export default function HomeLayout() {
     return (
         <div >
                     <br/>
                     <br/>
+   
             <Grid>
                 <Grid.Row>
 
@@ -22,7 +22,6 @@ export default function HomeLayout() {
                         <Search size="massive" showNoResults={false} />
                         <br/>
                         <Route exact path="/" component={HomePage} />
-                        <Route exact path="/" component={SignUp} />
                     </Grid.Column>
                 </Grid.Row>
             </Grid>

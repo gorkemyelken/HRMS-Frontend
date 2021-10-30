@@ -5,7 +5,7 @@ export default class CandidateService{
         return axios.get("http://localhost:8080/api/candidates/getall")
     }
 
-    getByFirstName(firstName){
-        return axios.get("http://localhost:8080/api/candidates/getByFirstName?firstName=" + firstName)
+    findById(id){
+        return axios.get("http://localhost:8080/api/cvs/findbyid?id=" + id)
     }
 }

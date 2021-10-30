@@ -10,6 +10,9 @@ import JobAdvertisementLayout from './JobAdvertisementLayout';
 import AboutUsLayout from './AboutUsLayout';
 import CandidateSignUp from '../pages/CandidateSignUp';
 import Letscallyou from '../pages/Letscallyou';
+import CandidateDetail from '../pages/CandidateDetail';
+import EmployerDetail from '../pages/EmployerDetail';
+import JobAdvertisementDetail from '../pages/JobAdvertisementDetail';
 
 export default function Dashboard() {
     return (
@@ -19,8 +22,11 @@ export default function Dashboard() {
                 <Navi />
                 <Route exact path="/" component={HomeLayout} />
                 <Route exact path="/companies" component={EmployerLayout} />
+                <Route path="/companies/:id" component={EmployerDetail} />
                 <Route exact path="/candidates" component={CandidateLayout} />
+                <Route path="/candidates/:id" component={CandidateDetail} />
                 <Route exact path="/jobadvertisements" component={JobAdvertisementLayout} />
+                <Route path="/jobAdvertisements/:id" component={JobAdvertisementDetail} />
                 <Route exact path="/aboutus" component={AboutUsLayout} />
                 <Route exact path="/individualsignup" component={CandidateSignUp} />
                 <Route exact path="/letscallyou" component={Letscallyou} />

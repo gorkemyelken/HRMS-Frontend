@@ -1,11 +1,16 @@
 import axios from "axios"
 
-export default class jobAdvertisementService{
-    getJobAdvertisements(){
+export default class JobAdvertisementService {
+    getJobAdvertisements() {
         return axios.get("http://localhost:8080/api/jobadvertisements/getall")
     }
-    getById(id){
-        return axios.get("http://localhost:8080/api/jobadvertisements/getbyid?id=" + id)
-  }
-    
+
+    findById(id){
+        return axios.get("http://localhost:8080/api/jobadvertisements/findbyid?id=" + id)
+    }
+
+    getByEmployer(companyName){
+        return axios.get("http://localhost:8080/api/jobadvertisements/getbyemployer?companyName=" + companyName)
+    }
+
 }

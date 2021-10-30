@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import EmployerService from '../services/employerService'
 import { Image, Card, Grid, Divider, Header, Icon } from 'semantic-ui-react'
+import { Link } from 'react-router-dom'
 
 export default function EmployerList() {
     const [employers, setEmployers] = useState([])
@@ -12,11 +13,10 @@ export default function EmployerList() {
     return (
         <div>
             <br/>
-            
             <Divider horizontal fitted>
                 <Header as='h4'>
                     <Icon name='building' />
-                    Employers
+                    Companies
                 </Header>
             </Divider>
             <br/>
@@ -26,18 +26,18 @@ export default function EmployerList() {
                     {employers.map((employer) => (
                         <Grid.Column>
                             
-                            <Card>
+                            <Card >
                             
                                         <Image src={employer.imageUrl}  />
                                     
                                 <Card.Content>
-                                    <Card.Header>{employer.companyName}</Card.Header>
+                                    <Card.Header><Link to={`/companies/${employer.id}`}>
+                                        {employer.companyName}
+                                    </Link></Card.Header>
                                     <Card.Description>
                                         {employer.webAddress}
                                     </Card.Description>
-                                    <Card.Description>
-                                        {employer.phoneNumber}
-                                    </Card.Description>
+                                   
                                 </Card.Content>
                             </Card>
 

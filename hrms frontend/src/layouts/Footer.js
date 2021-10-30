@@ -14,7 +14,7 @@ export default function Footer() {
                 <Grid.Row centered>
                     <List link horizontal>
                         <List.Item as={NavLink} to="/" content="Home" />
-                        <List.Item as={NavLink} to="/employers" content="Employers" />
+                        <List.Item as={NavLink} to="/companies" content="Companies" />
                         <List.Item as={NavLink} to="/candidates" content="Candidates" />
                         <List.Item as={NavLink} to="/jobadvertisements" content="Job Postings" />
                     </List>
